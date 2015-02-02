@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/newdetail_title"
+        layout="@layout/head" />
+
+ <ScrollView 
+     
+       android:layout_below="@id/newdetail_title"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content" 
+     >
+     <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" > 
+                    <TextView
+        android:id="@+id/newdetaicenterTitle"
+        style="@style/white18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newdetail_title"
+        android:layout_gravity="right"
+        
+        android:gravity="left|center_vertical"
+        android:text=""
+           android:textColor="@color/color_gray_dark"
+            android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+ <TextView
+     
+        android:id="@+id/newdetaicenterTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="12sp"
+        android:layout_gravity="right|center_vertical"
+        android:gravity="right|center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/color_gray_light"
+        android:layout_below="@id/newdetaicenterTitle"
+         />
+    <ImageView
+         android:layout_marginTop="10dp"
+        android:id="@+id/newdetail_img"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/newdetaicenterTime"
+        />
+<TextView 
+    android:id="@+id/fengexian"
+    android:layout_width="fill_parent"
+    android:layout_height="2dp"
+    android:background="@drawable/fengexian"
+      android:layout_below="@id/newdetail_img"
+      android:layout_marginTop="10dp"
+      android:layout_marginBottom="10dp"
+    />
+<!--  
+    <com.example.util.MyWebView
+        android:id="@+id/detail_content_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fengexian"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text=""
+        android:textColor="@color/color_gray_dark"
+        android:textSize="16sp" />
+        -->
+    <!-- 
+     <WebView
+         android:fadeScrollbars="true"
+        android:id="@+id/detail_content_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fengexian"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text=""
+        android:textColor="@color/color_gray_dark"
+        android:textSize="16sp" />
+     --> 
+     
+     <com.example.util.view.HtmlTextView
+           android:id="@+id/wb_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/new_img"
+        android:visibility="visible"
+        android:textSize="16sp"
+        android:textColor="@color/item_title"
+        android:layout_centerHorizontal="true"
+         />
+  </LinearLayout>
+</ScrollView>
+</RelativeLayout>

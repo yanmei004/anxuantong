@@ -1,0 +1,27 @@
+package com.hengtong.library.manager.comm;
+
+import com.hengtong.library.async.AsyncHttpResponseHandler;
+
+/**
+ * 功能：公共网络请求接口
+ * @ahthor：黄荣星
+ * @date:2014年5月22日
+ * @version::V1.0
+ */
+public interface ICommNet {
+	// 更新
+	public void checkUpdate(int currentVersionCode, String driverId, String token, AsyncHttpResponseHandler handler);
+
+	public void doDriverArrived(String driverId, String orderNo, AsyncHttpResponseHandler handler);
+
+	public void doDriverSureOrder(String driverId, String orderNo, AsyncHttpResponseHandler handler);
+
+	public void doCompleteOrder(String driverId, String orderNo, AsyncHttpResponseHandler handler);
+
+	public void doGetPrice(String driverId, String orderNo, AsyncHttpResponseHandler handler);
+
+	public void doGetDriverInfo(String driverId, String orderNo, AsyncHttpResponseHandler handler);
+
+	public void doGetUsePrice(long updateTime, String orderClass, AsyncHttpResponseHandler handler);
+
+}

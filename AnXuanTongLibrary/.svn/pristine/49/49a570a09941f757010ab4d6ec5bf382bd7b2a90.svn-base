@@ -1,0 +1,120 @@
+package com.hengtong.library.manager.comm.imp;
+
+import com.hengtong.library.async.AsyncHttpResponseHandler;
+import com.hengtong.library.enty.HTRequestObject;
+import com.hengtong.library.manager.HTAsyncNetManager;
+import com.hengtong.library.manager.comm.ICommNet;
+
+/**
+ * 功能：公共网络接口实现类
+ * @ahthor：黄荣星
+ * @date:2014年5月22日
+ * @version::V1.0
+ */
+public class CommNetManager implements ICommNet {
+
+	private String mToken;
+	private String mUserName;
+	private static CommNetManager mCommNetManager;
+
+	public static CommNetManager getCommNetManager() {
+		if (mCommNetManager == null)
+			mCommNetManager = new CommNetManager();
+		return mCommNetManager;
+	}
+
+	public void setmToken(String mToken) {
+		this.mToken = mToken;
+	}
+
+	public void setmUserName(String mUserName) {
+		this.mUserName = mUserName;
+	}
+
+	// *************************************************接 口******************************************************
+	@Override
+	public void checkUpdate(int currentVersionCode, String driverId,String token,AsyncHttpResponseHandler handler) {
+		this.mToken=token;
+		this.mUserName=driverId;
+		
+		HTRequestObject aRequestObject = new HTRequestObject();
+		aRequestObject.setmForamt("json");
+		aRequestObject.setmMethod("GetLastAppVersion");
+		aRequestObject.setmTypeName("App");
+		aRequestObject.setmToken(mToken);
+
+		aRequestObject.setmParms("lastVersion", currentVersionCode);
+		aRequestObject.setmParms("platform", "22");
+		aRequestObject.setmParms("userId", mUserName);
+		HTAsyncNetManager.post(aRequestObject, handler);
+	}
+
+	@Override
+	public void doDriverArrived(String driverId, String orderNo, AsyncHttpResponseHandler handler) {
+		HTRequestObject aRequestObject = new HTRequestObject();
+		aRequestObject.setmForamt("json");
+		aRequestObject.setmMethod("DriverArrived");
+		aRequestObject.setmTypeName("UseCar");
+		aRequestObject.setmToken(mToken);
+
+		aRequestObject.setmParms("orderNo", "");
+		aRequestObject.setmParms("userId", mUserName);
+		HTAsyncNetManager.post(aRequestObject, handler);
+	}
+
+	@Override
+	public void doDriverSureOrder(String driverId, String orderNo, AsyncHttpResponseHandler handler) {
+		HTRequestObject aRequestObject = new HTRequestObject();
+		aRequestObject.setmForamt("json");
+		aRequestObject.setmMethod("DriverArrived");
+		aRequestObject.setmTypeName("UseCar");
+		aRequestObject.setmToken(mToken);
+
+		aRequestObject.setmParms("orderNo", "");
+		aRequestObject.setmParms("userId", mUserName);
+		HTAsyncNetManager.post(aRequestObject, handler);
+
+	}
+
+	@Override
+	public void doCompleteOrder(String driverId, String orderNo, AsyncHttpResponseHandler handler) {
+		HTRequestObject aRequestObject = new HTRequestObject();
+		aRequestObject.setmForamt("json");
+		aRequestObject.setmMethod("DriverArrived");
+		aRequestObject.setmTypeName("UseCar");
+		aRequestObject.setmToken(mToken);
+
+		aRequestObject.setmParms("orderNo", "");
+		aRequestObject.setmParms("userId", mUserName);
+		HTAsyncNetManager.post(aRequestObject, handler);
+
+	}
+
+	@Override
+	public void doGetPrice(String driverId, String orderNo, AsyncHttpResponseHandler handler) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void doGetDriverInfo(String driverId, String orderNo, AsyncHttpResponseHandler handler) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void doGetUsePrice(long updateTime, String orderClass, AsyncHttpResponseHandler handler) {
+		HTRequestObject aRequestObject = new HTRequestObject();
+		aRequestObject.setmForamt("json");
+		aRequestObject.setmMethod("GetPriceRule");
+		aRequestObject.setmToken(mToken);
+		aRequestObject.setmTypeName("Area");
+
+		aRequestObject.setmParms("updateTime", updateTime);
+		aRequestObject.setmParms("driverId", mUserName);
+		aRequestObject.setmParms("orderClass", orderClass);
+
+		HTAsyncNetManager.post(aRequestObject, handler);
+	}
+
+}

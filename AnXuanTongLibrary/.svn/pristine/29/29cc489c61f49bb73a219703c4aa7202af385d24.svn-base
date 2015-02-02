@@ -1,0 +1,49 @@
+package com.hengtong.library;
+
+/**
+ * 功能：系统常量
+ * @ahthor：黄荣星
+ * @date:2013-11-12
+ * @version::V1.0
+ */
+public interface HTContants {
+
+	// public static final String API_URL_JSON_NETWORK = "http://192.168.18.8:8083/Android/Post";
+	// 外网测试地址
+	// public static final String API_URL_JSON_NETWORK = "http://121.199.50.197:8083/Android/Post";
+	// 外网服务器域名
+	public static final String API_URL_JSON_NETWORK = "http://server.cyzl.com/Android/Post";
+	// 老相测试地址
+	// public static final String API_URL_JSON_NETWORK = "http://192.168.100.202:8083/Android/Post";
+	// 图片地址
+	public static final String API_URL_IMAGE_NETWORK = "http://img.easytom.cn:10086/";
+	// 网银支付接口
+	public static final String API_URL_PAY_NETWORK = "http://112.124.54.114:10004/Pay/MobileUnionpay";
+	// 支付宝充值网址
+	public static final String API_URL_ALIPAY_NETWORK = "http://121.199.50.197:8085/Pay";
+
+	public static final String API_URL = API_URL_JSON_NETWORK;
+
+	/**
+	 * 对话框消失等待时间：1.5秒
+	 */
+	public static final int DIG_DISMISS_DELAY = 1500;
+
+	// **************************** 返回值定义 ***************************
+	public static final int RET_SUCCESS = 0;// 请求成功
+	public static final int RET_FAIL = -1;// 请求失败
+	public static final int RET_NET_ERROR = -1000;// 网络错误
+	public static final int RET_NET_ERROR_NULL = -1001;// 服务器返回空
+
+	public static final String SDCARD_PATH_ROOT = "hengtong"; // 根目录
+	public static final String SDCARD_PATH_TEMP = SDCARD_PATH_ROOT + "/temp/"; // 临时目录
+
+	// ==========================司机端begin==========================
+	// 百度地图key
+	// public static final String BAIDU_MAP_KEY = "D9bf859f84335e7a8175827be310dedc";// 测试
+	public static final String BAIDU_MAP_KEY = "16738d17d3ec1fce354518c590369039";// 正式
+	// public static final String BAIDU_MAP_KEY = "81d6f4fb74b6e8f604f3756f3d3c715d";// 正式发布有问题的
+
+	// ==========================司机端end============================
+
+}

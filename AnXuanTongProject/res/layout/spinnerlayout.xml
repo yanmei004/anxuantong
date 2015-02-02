@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_blue"
+     >
+     <TextView 
+     android:id="@+id/sp_tv"
+     android:layout_width="fill_parent"
+     android:layout_height="1dp"
+   android:background="#a0a0a0"
+     /> 
+ <TextView 
+     android:id="@+id/sp_tv"
+     android:layout_width="fill_parent"
+     android:layout_height="36dp"
+     android:textSize="14sp"
+     android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+     android:textColor="#123456"
+     android:gravity="center"
+     android:text="六枝煤矿"
+     />
+ <TextView 
+     android:id="@+id/sp_tv"
+     android:layout_width="fill_parent"
+     android:layout_height="1dp"
+   android:background="#a0a0a0"
+     /> 
+</LinearLayout>

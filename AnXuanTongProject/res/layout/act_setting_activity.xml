@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeff3"
+    android:orientation="vertical" >
+
+    <include
+        layout="@layout/head"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_qchc"
+        style="@style/preference_style"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            style="@style/preference_textview_style"
+            android:text="清除缓存" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/setting_ly_qchc"
+        
+        android:id="@+id/setting_ly_sign_in"
+        style="@style/preference_last_style" >
+
+        <TextView
+            style="@style/preference_textview_style"
+            android:text="分 享  给  " />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66000000"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip"
+        android:orientation="vertical" >
+
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/current_red_btn"
+            android:text="注销"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

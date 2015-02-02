@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_blue"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fail_layout" />
+
+    <include layout="@layout/load_failed_layout" />
+
+    <include layout="@layout/loading_layout" />
+
+     <TextView
+        android:id="@+id/detail_ctivity_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:drawablePadding="20dp"
+        android:drawableTop="@drawable/car_face_cry"
+        android:textColor="@color/color_gray"
+        android:textSize="18sp"
+        android:text="还没有数据了"
+        android:visibility="gone"
+         />
+    <com.example.util.MainGridView
+        android:id="@+id/main_gridView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/bg_blue"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp" />
+
+</RelativeLayout>

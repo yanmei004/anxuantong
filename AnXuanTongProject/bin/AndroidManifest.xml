@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anxuantong.ym"
+    android:versionCode="8"
+    android:versionName="1.3" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    <!-- Required  一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="com.hrx.gz.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" /> <!-- 用于读取日志信息 -->
+
+    <application
+        android:name="com.example.project.applican.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/axtlogo"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+        <activity
+            android:name="com.example.project.MyMenuActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.example.project.NewsListActivity" >
+        </activity>
+        <activity android:name="com.example.project.NewsDetailActivity" >
+        </activity>
+        <activity android:name="com.example.project.RegisterActivity" >
+        </activity>
+        
+        <activity android:name="com.example.project.WelcomeActivity" >
+              <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Caution! Do not change this app key. It is only for demo usage. -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="546f0233fd98c54f34002c13" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng" >
+        </meta-data>
+
+        <activity android:name="com.example.project.InfoLoginActivity" >
+          
+        </activity>
+    </application>
+
+</manifest>

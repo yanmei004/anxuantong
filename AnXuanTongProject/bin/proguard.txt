@@ -1,0 +1,42 @@
+# view res/layout/ad_cycle_view.xml #generated:6
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view res/layout/detail_layout.xml #generated:53
+-keep class cmcc.gz.lib.controls.pulltorefresh.PullToRefreshListView { <init>(...); }
+
+# view AndroidManifest.xml #generated:61
+-keep class com.example.project.InfoLoginActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:32
+-keep class com.example.project.MyMenuActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:38
+-keep class com.example.project.NewsDetailActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:36
+-keep class com.example.project.NewsListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class com.example.project.RegisterActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:43
+-keep class com.example.project.WelcomeActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:26
+-keep class com.example.project.applican.MyApplication { <init>(...); }
+
+# view res/layout/detail_layout.xml #generated:26
+-keep class com.example.util.ImageCycleView { <init>(...); }
+
+# view res/layout/homeactivity.xml #generated:29
+-keep class com.example.util.MainGridView { <init>(...); }
+
+# view res/layout/act_aboutus_activity.xml #generated:8
+-keep class com.example.util.ReboundScrollView { <init>(...); }
+
+# view res/layout/act_newsdetail_activity.xml #generated:95
+-keep class com.example.util.view.HtmlTextView { <init>(...); }
+
+# view res/layout/home.xml #generated:14
+-keep class com.handmark.pulltorefresh.library.PullToRefreshListView { <init>(...); }
+

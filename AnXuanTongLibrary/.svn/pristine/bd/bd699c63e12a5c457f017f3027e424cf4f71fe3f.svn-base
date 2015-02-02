@@ -1,0 +1,135 @@
+package com.hengtong.library.manager;
+
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.http.Header;
+import org.apache.http.entity.StringEntity;
+import org.json.JSONObject;
+
+import android.content.Context;
+
+import com.hengtong.library.async.AsyncHttpClient;
+import com.hengtong.library.async.AsyncHttpResponseHandler;
+import com.hengtong.library.async.RequestParams;
+import com.hengtong.library.enty.HTRequestObject;
+import com.hengtong.library.enty.HTResponseObject;
+import com.hengtong.library.utils.LogControl;
+
+/**
+ * 功能：开源网络框架封装类
+ * @ahthor：黄荣星
+ * @date:2014-1-7
+ * @version::V1.0
+ */
+public class HTAsyncNetManager extends NetManager {
+	private final static String TAG = HTAsyncNetManager.class.getSimpleName();
+	private final static boolean FLAGE_HEADER_DEBUGE = true;
+
+	private static AsyncHttpClient client = new AsyncHttpClient();
+
+	public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+		client.get(getAbsoluteUrl(url), params, responseHandler);
+	}
+
+	public static void post(HTRequestObject aRequestObject, AsyncHttpResponseHandler responseHandler) {
+		post(API_URL_JSON_NETWORK, aRequestObject, "UTF-8", responseHandler);
+	}
+
+	public static void post(HTRequestObject aRequestObject, Map<String, String> headers, AsyncHttpResponseHandler responseHandler) {
+		if (headers != null && headers.size() > 0) {
+			for (String header : headers.keySet()) {
+				client.addHeader(header, headers.get(header));
+			}
+		}
+		post(API_URL_JSON_NETWORK, aRequestObject, "UTF-8", responseHandler);
+	}
+
+	public static void post(String url, HTRequestObject aRequestObject, String charset, AsyncHttpResponseHandler responseHandler) {
+		try {
+			// 公共参数
+			JSONObject requst = commentReqeustObj(aRequestObject);
+			// 参数构造
+			HashMap<Object, Object> map = aRequestObject.getmPamsMap();
+			JSONObject parmas = new JSONObject();
+			if (map != null && map.size() > 0) {
+				for (Entry<Object, Object> entry : map.entrySet()) {
+					parmas.put(entry.getKey().toString(), entry.getValue());
+				}
+			} else {
+				LogControl.e(TAG, "the request is null");
+			}
+			requst.put("Parms", parmas);
+			// LogControl.e("url", "url:" + url + " method:" + aRequestObject.getmMethod() + " params:" + requst.toString());
+			StringEntity entity = new StringEntity(requst.toString(), charset);
+			client.post(null, url, entity, "application/json", responseHandler);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * method desc：获取网络绝对地址
+	 * @param relativeUrl
+	 * @return
+	 */
+	private static String getAbsoluteUrl(String relativeUrl) {
+		return API_URL_JSON_NETWORK + relativeUrl;
+	}
+
+	/**
+	 * method desc：
+	 * @param aContext
+	 * @param aRequestObject
+	 * @param aSyncResponseHandler
+	 */
+	public static void post(final Context aContext, HTRequestObject aRequestObject, final HTIAsyncResponseHandler aSyncResponseHandler) {
+		post(aRequestObject, new AsyncHttpResponseHandler() {
+
+			@Override
+			public void onStart() {
+				super.onStart();
+				aSyncResponseHandler.onStart();
+			}
+
+			@Override
+			public void onFinish() {
+				super.onFinish();
+				aSyncResponseHandler.OnFinish();
+			}
+
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+				printHeaders(headers);
+				LogControl.i("url", "responseBody:" + new String(responseBody));
+				HTResponseObject response = ParseHandler.parseJson(aContext, new String(responseBody));
+				aSyncResponseHandler.OnSuccesse(response);
+			}
+
+			@Override
+			public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+				printHeaders(headers);
+				aSyncResponseHandler.OnFaile(statusCode, responseBody, error);
+			}
+		});
+	}
+
+	/**
+	 * method desc：输出头部
+	 * @param headers 头部数组对象
+	 */
+	private static void printHeaders(Header[] headers) {
+		if (FLAGE_HEADER_DEBUGE) {
+			if (headers != null && headers.length > 0) {
+				for (Header header : headers) {
+					LogControl.e(TAG, header.getName() + ":" + header.getValue() + "\n");
+				}
+			}
+		}
+	}
+
+}

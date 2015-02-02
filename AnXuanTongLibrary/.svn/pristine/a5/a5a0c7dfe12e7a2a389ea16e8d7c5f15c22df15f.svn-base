@@ -1,0 +1,36 @@
+package com.hengtong.library.manager;
+
+import com.hengtong.library.enty.HTResponseObject;
+
+/**
+ * 功能：功能：服务器返回处理接口
+ * @ahthor：黄荣星
+ * @date:2014年4月8日
+ * @version::V1.0
+ */
+public interface HTIAsyncResponseHandler {
+	/**
+	 * method desc：开始
+	 */
+	void onStart();
+
+	/**
+	 * method desc：结束
+	 */
+	void OnFinish();
+
+	/**
+	 * method desc：成功回调
+	 * @param aHTResponseObject 返回对象
+	 */
+	void OnSuccesse(HTResponseObject aHTResponseObject);
+
+	/**
+	 * method desc：是吧回调
+	 * @param statusCode 状态码
+	 * @param responseBody 返回体
+	 * @param error 异常对象
+	 */
+	void OnFaile(int statusCode, byte[] responseBody, Throwable error);
+
+}
